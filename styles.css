@@ -1,0 +1,218 @@
+/* Cấu trúc chung */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    line-height: 1.6;
+}
+
+.light-mode {
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.dark-mode {
+    background-color: #333;
+    color: #f9f9f9;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: #007bff;
+    color: white;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+header:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Nút chuyển chế độ sáng/tối */
+#toggle-theme {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 50px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#toggle-theme:hover {
+    background-color: #0056b3;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+#toggle-theme:focus {
+    outline: none;
+}
+
+#toggle-theme .icon {
+    margin-right: 8px;
+}
+
+#toggle-theme .icon.sun {
+    display: none;
+}
+
+body.dark-mode #toggle-theme .icon.sun {
+    display: inline-block;
+}
+
+body.light-mode #toggle-theme .icon.moon {
+    display: inline-block;
+}
+
+/* Biểu tượng mặt trời và mặt trăng */
+.icon.sun, .icon.moon {
+    font-size: 18px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Hiệu ứng cho nút chuyển */
+#toggle-theme .icon.sun:hover, 
+#toggle-theme .icon.moon:hover {
+    transform: scale(1.2);
+}
+
+/* Các phần tử ẩn khi chưa đăng nhập */
+.hidden {
+    display: none;
+}
+
+/* Cấu trúc đăng nhập và chính */
+.login-page, .main-page {
+    text-align: center;
+    padding: 80px 20px;
+    margin-top: 60px; /* Giữ khoảng cách dưới header */
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Cấu trúc các ô trong form */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Căn giữa các phần tử trong form */
+    width: 100%;
+    max-width: 400px; /* Đảm bảo form không quá rộng */
+    margin: 0 auto;
+}
+
+input[type="text"], input[type="date"], input[type="file"], textarea {
+    width: 80%;
+    margin: 10px 0;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus, input[type="date"]:focus, textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+textarea {
+    width: 80%;
+    margin: 10px 0;
+    padding: 5px;
+    height: 120px;
+    font-size: 14px;
+    resize: none;
+}
+
+/* Nút đăng nhập và tải ảnh */
+button {
+    padding: 12px 24px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 10px 0;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Lỗi đăng nhập */
+.error {
+    color: red;
+    margin-top: 10px;
+    animation: shake 0.5s ease-in-out;
+}
+
+/* Hiển thị ảnh tải lên */
+#gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px; /* Giảm khoảng cách giữa các ảnh */
+    padding: 20px;
+    margin-top: 80px; /* Đảm bảo khoảng cách dưới header */
+}
+
+#gallery img {
+    width: 100%; /* Đảm bảo ảnh có thể thu hẹp theo chiều rộng */
+    max-width: 250px; /* Đặt chiều rộng tối đa cho mỗi ảnh */
+    height: auto; /* Cho phép chiều cao thay đổi linh động */
+    object-fit: cover; /* Giữ tỷ lệ ảnh đúng và cắt ảnh cho vừa */
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    margin-bottom: 10px; /* Giảm khoảng cách dưới ảnh */
+}
+
+/* Hiệu ứng hover */
+#gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Nút xóa */
+.delete-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: rgba(255, 0, 0, 0.6);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    font-size: 18px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+    pointer-events: none; /* Ngăn không cho người dùng nhấn vào nút xóa nếu ảnh không có lớp active */
+}
+
+/* Hiển thị nút xóa khi phần tử có lớp active */
+.gallery-item.active .delete-btn {
+    opacity: 1;
+    pointer-events: auto; /* Cho phép nút xóa được tương tác */
+}
+
+/* Đảm bảo nút xóa không bị che khuất */
+.gallery-item {
+    position: relative;
+    width: 250px;
+    height: auto;
+}

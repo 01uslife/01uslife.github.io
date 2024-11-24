@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anh em xã đoàn</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="light-mode">
+  <!-- Đăng Nhập -->
+  <div id="login-page" class="login-page">
+    <h1>Đăng Nhập</h1>
+    <form id="login-form">
+      <input type="text" id="name" placeholder="Họ và Tên" required>
+      <input type="date" id="dob" placeholder="Ngày Sinh" required>
+      <button type="submit">Đăng Nhập</button>
+    </form>
+    <p id="login-error" class="error"></p>
+  </div>
+
+  <!-- Trang Chính -->
+  <div id="main-page" class="main-page hidden">
+    <header>
+      <h1>Team Súc Vật</h1>
+      <button id="toggle-theme">Chuyển Chế Độ Sáng/Tối</button>
+    </header>
+    <section id="upload-section">
+      <h2>Tải Ảnh Lên</h2>
+      <form id="upload-form">
+        <input type="file" id="file-input" accept="image/*" required>
+        <textarea id="comment-input" placeholder="Viết bình luận về ảnh..."></textarea>
+        <button type="submit">Tải Lên</button>
+      </form>
+    </section>
+    <section id="gallery-section">
+      <h2>Bộ Sưu Tập</h2>
+      <div id="gallery"></div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
