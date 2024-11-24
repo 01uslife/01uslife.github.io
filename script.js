@@ -2,7 +2,7 @@ const CLIENT_ID = '24618b94a256f24'; // Thay bằng Client ID của bạn
 
 const users = [
   { name: 'Trần Nhật Long', dob: '2006-11-09' },
-  { name: 'Lại Thái Đức', dob: '2006-12-04' }
+  { name: 'Lại Thái Đức', dob: '2006-12-04' } ,
 ];
 
 // Xử lý đăng nhập chỉ 1 lần
